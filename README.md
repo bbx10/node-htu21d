@@ -36,7 +36,7 @@ $ npm install htu21d
 ## Usage
 
 ````javascript
-var i2c_htu21d = require('htu21d');
+var i2c_htu21d = require('htu21d-i2c');
 
 // If using a Raspberry Pi, do not specify the i2c device name.
 // The correct name will be used based on the board revision.
