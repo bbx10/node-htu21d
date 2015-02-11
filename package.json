@@ -1,6 +1,6 @@
 {
   "name": "htu21d",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Read temperature and humidity from the HTU21DF sensor",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   ],
   "author": "bbx10node <bbx10node@gmail.com> (http://x10linux.blogspot.com/)",
   "repository": {
-      "type": "git",
-      "url": "http://github.com/bbx10/node-htu21d.git"
+    "type": "git",
+    "url": "http://github.com/bbx10/node-htu21d.git"
   },
   "license": "MIT",
   "dependencies": {
