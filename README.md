@@ -30,7 +30,7 @@ on the Pi.
 ## Install this module
 
 ```bash
-$ npm install htu21d
+$ npm install htu21d-i2c
 ```
 
 ## Usage
