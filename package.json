@@ -1,0 +1,26 @@
+{
+  "name": "htu21d",
+  "version": "0.0.1",
+  "description": "Read temperature and humidity from the HTU21DF sensor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sensor",
+    "raspberry",
+    "pi",
+    "htu21d",
+    "i2c"
+  ],
+  "author": "bbx10node <bbx10node@gmail.com> (http://x10linux.blogspot.com/)",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/bbx10/node-htu21d.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "i2c": "0.1.x"
+  },
+  "homepage": "http://github.com/bbx10/node-htu21d.git"
+}
