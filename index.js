@@ -44,10 +44,10 @@ var htu21d = function (i2copts_arg) {
     var i2copts;
     var raspi_check;
     if (typeof i2copts_arg === 'undefined') {
-        i2copts = {device: '/dev/i2c-0'};
+        i2copts = {device: '/dev/i2c-1'};
         raspi_check = raspi_i2c_devname();
         if (raspi_check !== '') {
-            console.log('Raspberry Pi I2C device name is: ', raspi_check);
+            //console.log('Raspberry Pi I2C device name is: ', raspi_check);
             i2copts.device = raspi_check;
         }
     }
@@ -56,12 +56,12 @@ var htu21d = function (i2copts_arg) {
         if ((typeof i2copts.device === 'undefined') || (i2copts.device === '')) {
             raspi_check = raspi_i2c_devname();
             if (raspi_check !== '') {
-                console.log('Raspberry Pi I2C device name is: ', raspi_check);
+                //console.log('Raspberry Pi I2C device name is: ', raspi_check);
                 i2copts.device = raspi_check;
             }
         }
     }
-    console.log('i2c options: ', i2copts);
+    //console.log('i2c options: ', i2copts);
     this.i2c        = new i2c(HTU21D_I2CADDR, i2copts);
 };
 
@@ -156,7 +156,7 @@ function raspi_i2c_devname()
     try {
         var revisionBuffer = fs.readFileSync('/sys/module/bcm2708/parameters/boardrev');
         var revisionInt = parseInt(revisionBuffer.toString(), 10);
-        console.log('Raspberry Pi board revision: ', revisionInt);
+        //console.log('Raspberry Pi board revision: ', revisionInt);
         // Older boards use i2c-0, newer boards use i2c-1
         if ((revisionInt === 2) || (revisionInt === 3)) {
             return '/dev/i2c-0';
@@ -167,7 +167,7 @@ function raspi_i2c_devname()
     }
     catch(e) {
         if (e.code === 'ENOENT') {
-            console.log('Not a Raspberry Pi');
+            //console.log('Not a Raspberry Pi');
             return '';
         }
         else {

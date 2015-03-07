@@ -54,6 +54,11 @@ htu21df.readTemperature(function (temp) {
 });
 ````
 
+## node.js v0.12.0
+
+This works with the current version of i2c (0.2.1) and node 0.12.0. If using an
+older version of node, use i2c@0.1.8.
+
 ## License
 
 The MIT License (MIT)
