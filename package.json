@@ -1,6 +1,6 @@
 {
   "name": "htu21d-i2c",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Read temperature and humidity from the HTU21D-F sensor",
   "main": "index.js",
   "scripts": {
