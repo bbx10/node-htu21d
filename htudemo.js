@@ -7,10 +7,10 @@ var i2c_htu21d = require('./index.js');
 // For example: i2c_htu21d({device: '/dev/i2c-1'});
 var htu21df = new i2c_htu21d();
 
-htu21df.readTemperature(function (temp) {
+htu21df.readTemperature(function (err, temp) {
     console.log('Temperature, C:', temp);
 
-    htu21df.readHumidity(function (humidity) {
+    htu21df.readHumidity(function (err, humidity) {
         console.log('Humidity, RH %:', humidity);
     });
 });
