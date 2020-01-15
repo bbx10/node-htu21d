@@ -21,6 +21,6 @@
   "license": "MIT",
   "homepage": "http://github.com/bbx10/node-htu21d.git",
   "dependencies": {
-    "i2c": ">=0.1.7"
+    "@abandonware/i2c": ">=0.2.4-1"
   }
 }

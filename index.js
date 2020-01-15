@@ -22,8 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-var i2c = require('i2c');
 var fs=require('fs');
+var i2c = null;
+try {
+  i2c = require('@abandonware/i2c');
+} catch(err) {
+  i2c = require('i2c');
+}
 
 var MAX_TEMP_CONVERSION     = 50;   // milliseconds
 var MAX_HUMI_CONVERSION     = 16;   // ms
