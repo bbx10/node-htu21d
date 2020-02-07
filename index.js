@@ -67,23 +67,20 @@ var htu21d = function (i2copts_arg) {
 
 htu21d.prototype.readTemperature = function(callback) {
     var that = this;
-    this.i2c.writeByte(HTU21D_READTEMP_NH, function(err) {
-        if (err) {
-            console.log(err);
-            return err;
-        }
-        else {
+    this.i2c.writeByte(HTU21D_READTEMP_NH, function(err, data) {
+      if (err) {
+        return callback(err, null);
+      } else {
             setTimeout(function() {
                 that.i2c.read(3, function(err, data) {
                     if (err) {
-                        console.log(err);
-                        return err;
+                        return callback(err, null);
                     } else {
                         if ((data.length === 3) && calc_crc8(data, 3)) {
                             var rawtemp = ((data[0] << 8) | data[1]) & 0xFFFC;
                             var temperature = ((rawtemp / 65536.0) * 175.72) - 46.85;
                             //console.log("Temperature, C:", temperature.toFixed(1));
-                            callback(temperature.toFixed(1));
+                            return callback(null, temperature.toFixed(1));
                         }
                     }
                 });
@@ -96,21 +93,19 @@ htu21d.prototype.readHumidity = function(callback) {
     var that = this;
     this.i2c.writeByte(HTU21D_READHUMI_NH, function(err) {
         if (err) {
-            console.log(err);
-            return err;
+            return callback(err, null);
         }
         else {
             setTimeout(function() {
                 that.i2c.read(3, function(err, data) {
                     if (err) {
-                        console.log(err);
-                        return err;
+                        return callback(err, null);
                     } else {
                         if ((data.length === 3) && calc_crc8(data, 3)) {
                             var rawhumi = ((data[0] << 8) | data[1]) & 0xFFFC;
                             var humidity = ((rawhumi / 65536.0) * 125.0) - 6.0;
                             //console.log("Relative Humidity, %:", humidity);
-                            callback(humidity.toFixed(1));
+                            return callback(null, humidity.toFixed(1));
                         }
                     }
                 });
